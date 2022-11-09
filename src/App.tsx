@@ -1,7 +1,7 @@
 import React from 'react';
 import{BrowserRouter as Router, Routes, Route}from'react-router-dom'
 import './App.css';
-import {Sales} from "./Components/Sales";
+import {Products} from "./Components/Products";
 import {Layout} from "./Components/Layout";
 import {About} from "./Components/About";
 import {Gallery} from "./Components/Gallery";
@@ -13,7 +13,7 @@ function App() {
       <Router>
           <Layout/>
           <Routes>
-              <Route path={'/sales'} element={<Sales/>}/>
+              <Route path={'/sales'} element={<Products/>}/>
               <Route path={'/about'} element={<About/>}/>
               <Route path={'/gallery'} element={<Gallery/>}/>
               <Route path={'/contact'} element={<Contact/>}/>

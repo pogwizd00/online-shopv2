@@ -11,7 +11,7 @@ export const Layout: FC<LayoutProps> = ({}) =>{
             <div className="App">
                 <div className='container'>
                     <Logo/><span className={'title'}>AP_STYLE</span>
-                    <Link to={'/sales'} className={'child'} style={{textDecoration: "none", color: "black"}}>Sales</Link>
+                    <Link to={'/sales'} className={'child'} style={{textDecoration: "none", color: "black"}}>Products</Link>
                     <Link to={'/about'} className={'child'} style={{textDecoration: "none", color: "black"}}>About</Link>
                     <Link to={'/gallery'} className={'child'} style={{textDecoration: "none", color: "black"}}>Gallery</Link>
                     <Link to={'/contact'} className={'child'} style={{textDecoration: "none", color: "black"}}>Contact</Link>

@@ -4,6 +4,6 @@ interface SignInProps {}
 
 export const SignIn: FC<SignInProps> = () =>{
     return (
-        <span className={'signIn'}>Sign in</span>
+        <span>Sign in</span>
     );
 };
