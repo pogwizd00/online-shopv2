@@ -10,7 +10,7 @@ export const Layout: FC<LayoutProps> = ({}) =>{
         <div>
             <div className="App">
                 <div className='container'>
-                    <span className={'child'}>APwooder$</span>
+                    <span className={'title'}>APwooder</span>
                     <Link to={'/sales'} className={'child'} style={{textDecoration: "none", color: "black"}}>Sales</Link>
                     <Link to={'/about'} className={'child'} style={{textDecoration: "none", color: "black"}}>About</Link>
                     <Link to={'/gallery'} className={'child'} style={{textDecoration: "none", color: "black"}}>Gallery</Link>

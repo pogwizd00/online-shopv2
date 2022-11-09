@@ -11,8 +11,8 @@ import {SignIn} from "./Components/SignIn";
 function App() {
   return (
       <Router>
+          <Layout/>
           <Routes>
-              <Route path={'/'} element={<Layout/>}/>
               <Route path={'/sales'} element={<Sales/>}/>
               <Route path={'/about'} element={<About/>}/>
               <Route path={'/gallery'} element={<Gallery/>}/>
