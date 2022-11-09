@@ -1,29 +1,25 @@
 import React from 'react';
-import './App.css';
-import './Styles/NavBar.css';
 import{BrowserRouter as Router, Routes, Route}from'react-router-dom'
-import {SignIn} from "./Components/SignIn";
-import {About} from "./Components/About";
+import './App.css';
 import {Sales} from "./Components/Sales";
+import {Layout} from "./Components/Layout";
+import {About} from "./Components/About";
+import {Gallery} from "./Components/Gallery";
+import {Contact} from "./Components/Contact";
+import {SignIn} from "./Components/SignIn";
 
 function App() {
   return (
-        <Router>
-            <div className="App">
-                    <div className='container'>
-                        <span>APwooder$</span>
-                        <Routes>
-                            <Route path={'/sales'} element={<Sales/>}/>
-                        </Routes>
-                        <span>Sales</span>
-                        <span>About</span>
-                        <span>Gallery</span>
-                        <span>Contact</span>
-                        <SignIn/>
-
-                    </div>
-            </div>
-        </Router>
+      <Router>
+          <Routes>
+              <Route path={'/'} element={<Layout/>}/>
+              <Route path={'/sales'} element={<Sales/>}/>
+              <Route path={'/about'} element={<About/>}/>
+              <Route path={'/gallery'} element={<Gallery/>}/>
+              <Route path={'/contact'} element={<Contact/>}/>
+              <Route path={'/signin'} element={<SignIn/>}/>
+          </Routes>
+      </Router>
   );
 
 }
