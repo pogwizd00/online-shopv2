@@ -1,0 +1,31 @@
+:root{
+
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    width: 100%;
+    justify-content: space-around;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.container span{
+    margin: auto;
+    padding: 2% ;
+    text-decoration: none;
+    box-sizing: border-box;
+    /*border: 1px solid gray;*/
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: 0.3s;
+}
+
+.container span:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
