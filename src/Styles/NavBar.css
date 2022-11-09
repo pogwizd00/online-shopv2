@@ -12,6 +12,7 @@
     flex-wrap: wrap;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     align-items: center;
+    padding-left: 2%;
 }
 
 .container .title {
@@ -19,7 +20,7 @@
     text-align: center;
     /*background-color: gray;*/
     margin-right: 15%;
-    margin-left: 3%;
+    margin-left: 1%;
 }
 
 .container .child{

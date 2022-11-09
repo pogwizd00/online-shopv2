@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import '../Styles/NavBar.css';
 import {Link} from "react-router-dom";
-
+import {Logo} from "./Logo";
 
 interface LayoutProps {}
 
@@ -10,7 +10,7 @@ export const Layout: FC<LayoutProps> = ({}) =>{
         <div>
             <div className="App">
                 <div className='container'>
-                    <span className={'title'}>APwooder</span>
+                    <Logo/><span className={'title'}>AP_STYLE</span>
                     <Link to={'/sales'} className={'child'} style={{textDecoration: "none", color: "black"}}>Sales</Link>
                     <Link to={'/about'} className={'child'} style={{textDecoration: "none", color: "black"}}>About</Link>
                     <Link to={'/gallery'} className={'child'} style={{textDecoration: "none", color: "black"}}>Gallery</Link>
