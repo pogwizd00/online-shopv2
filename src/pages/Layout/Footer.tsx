@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 
-interface ShelfsProps {}
+interface FooterProps {}
 
-export const Shelfs: FC<ShelfsProps> = ({}) =>{
+export const Footer: FC<FooterProps> = ({}) =>{
     return (
         <div>
-            
+
         </div>
     );
 };

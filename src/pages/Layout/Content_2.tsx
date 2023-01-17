@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 
-interface DesksProps {}
+interface Content_2Props {}
 
-export const Desks: FC<DesksProps> = ({}) =>{
+export const Content_2: FC<Content_2Props> = ({}) =>{
     return (
         <div>
 

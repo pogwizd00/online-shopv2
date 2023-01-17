@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 
-interface ChairsProps {}
+interface HeaderProps {}
 
-export const Chairs: FC<ChairsProps> = ({}) =>{
+export const Header: FC<HeaderProps> = ({}) =>{
     return (
         <div>
 
