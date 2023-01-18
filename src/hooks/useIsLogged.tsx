@@ -12,7 +12,14 @@ export const useIsLogged = () => {
 
 export const userDeleteCookies = () => {
     const cookiess = new Cookies();
+    cookiess.remove('id-user');
     cookiess.remove('is-logged');
     cookiess.remove('access-token');
     notificationsLogoutSuccesfull();
+}
+
+export const getUserId = (id: number) => {
+    const cookies = new Cookies();
+    id = cookies.get('user-id');
+    return id;
 }

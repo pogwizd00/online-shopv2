@@ -13,6 +13,7 @@ import {Layout} from "./Layout";
 import {SignIn} from "./SignIn";
 import {LogOut} from "./LogOut";
 import {NavbarAfterLogin} from "./NavbarAfterLogin";
+import {SignUp} from "./SignUp";
 
 
 interface RoutingProps {
@@ -43,6 +44,10 @@ const publicRoutes = [
     {
         path: '/signIn',
         element: <SignIn/>
+    },
+    {
+        path: '/signUp',
+        element: <SignUp/>
     },
     {
         path: '*',

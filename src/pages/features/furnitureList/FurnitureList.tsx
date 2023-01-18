@@ -1,10 +1,12 @@
 import React, {FC, useEffect} from 'react';
 import {SimpleFurniture} from "../../types/simpleFurniture";
-import {listFurniture} from "./api";
+import {getUser, listFurniture} from "./api";
 import {Paper} from '@mantine/core';
 import '../../Styles/FurnitureList.css';
 import {Card, Image, Text, Badge, Button, Group} from '@mantine/core';
 import basketLogo from '../../images/basket.png'
+import {getUserId} from "../../../hooks/useIsLogged";
+import {CreateUserDto} from "../../types/createUserDto";
 
 
 export const FurnitureList: FC = () => {
@@ -14,10 +16,12 @@ export const FurnitureList: FC = () => {
         listFurniture().then((data) => setFurnitures(data))
     }, []);
 
-    const addToBasekt = () => {
 
+    const addToBasket = (id: number) => {
+        console.log(id);
     }
-    
+
+
     return (
         <div className={'furniture-list-container'}>
             {furnitures.map((furniture) => (
@@ -44,7 +48,7 @@ export const FurnitureList: FC = () => {
                             {furniture.specific}
                         </Text>
 
-                        <Button onClick={addToBasekt} variant="light"
+                        <Button onClick={() => addToBasket(furniture.id)} variant="light"
                                 style={{backgroundColor: '#F2A65A', color: 'black'}} fullWidth mt="md"
                                 radius="md">
                             Add To Basket

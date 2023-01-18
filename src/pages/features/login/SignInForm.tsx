@@ -4,10 +4,12 @@ import {SignInFormTypes} from "./SignInFormTypes";
 import {Stack, TextInput} from "@mantine/core";
 import {Button} from '@mantine/core';
 import {signIn} from "./api";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {signInCorrectNotifications, signInErrorNotification} from "./notification";
 import logo from '../../images/drawer (2).png';
 
+
+export const userId = 0;
 
 export const SignInForm: FC = () => {
 
@@ -38,6 +40,7 @@ export const SignInForm: FC = () => {
                 <TextInput required type={"password"} mt="md"
                            placeholder="Password" {...form.getInputProps('password')} />
                 <Button type={"submit"} color="yellow" radius="md">Submit</Button>
+                <span>Create account<Link to={'/signUp'}> here :D</Link></span>
             </Stack>
         </form>
     );
