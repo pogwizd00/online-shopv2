@@ -22,7 +22,7 @@ export const NavbarAfterLogin: FC<NavbarAfterLoginProps> = ({}) => {
                     <Link to={'/products'} className={`child`}
                           style={{textDecoration: "none", color: "black"}}> Products</Link>
                     <Link to={'/about'} className={'child'}
-                          style={{textDecoration: "none", color: "black"}}>About</Link>
+                          style={{textDecoration: "none", color: "black"}}>About Me</Link>
                     <Link to={'/contact'} className={'child'}
                           style={{textDecoration: "none", color: "black"}}>Contact</Link>
                     <Link to={'/basket'} className={'child'}><img src={basketLogo}/></Link>

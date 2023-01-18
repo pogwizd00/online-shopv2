@@ -14,6 +14,7 @@ import {SignIn} from "./SignIn";
 import {LogOut} from "./LogOut";
 import {NavbarAfterLogin} from "./NavbarAfterLogin";
 import {SignUp} from "./SignUp";
+import {AboutWhenIsNotLogged} from "./AboutWhenIsNotLogged";
 
 
 interface RoutingProps {
@@ -31,7 +32,7 @@ const publicRoutes = [
             },
             {
                 path: '/about',
-                element: <About/>
+                element: <AboutWhenIsNotLogged/>,
             },
             {
                 path: '/contact',
@@ -90,7 +91,7 @@ const privateRoutes = [
 
 export const Routing: FC<RoutingProps> = ({}) => {
     const isLogged = useIsLogged();
-    console.log(isLogged);
+    // console.log(isLogged);
     const routes = isLogged ? privateRoutes : publicRoutes;
     return useRoutes(routes);
 };

@@ -18,8 +18,9 @@ export const userDeleteCookies = () => {
     notificationsLogoutSuccesfull();
 }
 
-export const getUserId = (id: number) => {
+export const useGetId = () => {
     const cookies = new Cookies();
-    id = cookies.get('user-id');
+    const id = cookies.get('user-id');
+    console.log(id);
     return id;
 }

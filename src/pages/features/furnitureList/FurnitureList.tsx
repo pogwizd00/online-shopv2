@@ -4,9 +4,6 @@ import {getUser, listFurniture} from "./api";
 import {Paper} from '@mantine/core';
 import '../../Styles/FurnitureList.css';
 import {Card, Image, Text, Badge, Button, Group} from '@mantine/core';
-import basketLogo from '../../images/basket.png'
-import {getUserId} from "../../../hooks/useIsLogged";
-import {CreateUserDto} from "../../types/createUserDto";
 
 
 export const FurnitureList: FC = () => {
@@ -39,6 +36,7 @@ export const FurnitureList: FC = () => {
 
                         <Group position="apart" mt="md" mb="xs">
                             <Text weight={500}>{furniture.type}</Text>
+
                             <Badge color="pink" variant="light">
                                 {furniture.price}$
                             </Badge>

@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import '../Styles/About.css';
+import {MeForm} from "../features/me/MeForm";
 
 interface AboutProps {
 }
@@ -7,7 +8,7 @@ interface AboutProps {
 export const About: FC<AboutProps> = ({}) => {
     return (
         <div>
-            <span>Version 1.0.1</span>
+            <MeForm/>
         </div>
     );
 };
