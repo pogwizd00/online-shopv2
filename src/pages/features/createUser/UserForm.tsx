@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC} from 'react';
 import {CreateUserDto} from "../../types/createUserDto";
 import {useNavigate} from "react-router-dom";
 import {useForm} from "@mantine/form";
@@ -17,7 +17,7 @@ type FormType = {
 }
 
 
-export const UserForm: FC<UserFormProps> = ({}) => {
+export const UserForm: FC<UserFormProps> = () => {
     // const[user, setUser] = useState<>()
     const navigate = useNavigate();
 
