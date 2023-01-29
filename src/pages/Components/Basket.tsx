@@ -1,13 +1,14 @@
 import React, {FC} from 'react';
-import basketIcon from '../images/basket.png';
+import {BasketForm} from "../features/basket/BasketForm";
+
 
 interface BasketProps {
 }
 
-export const Basket: FC<BasketProps> = ({}) => {
+export const Basket: FC<BasketProps> = () => {
     return (
         <div>
-
+            <BasketForm/>
         </div>
     );
 };

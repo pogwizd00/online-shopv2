@@ -8,7 +8,7 @@ import basketLogo from "../images/basket.png";
 interface LayoutProps {
 }
 
-export const Layout: FC<LayoutProps> = ({}) => {
+export const Layout: FC<LayoutProps> = () => {
     return (
         <div>
             <div className="App">
@@ -20,7 +20,9 @@ export const Layout: FC<LayoutProps> = ({}) => {
                           style={{textDecoration: "none", color: "black"}}>About Me</Link>
                     <Link to={'/contact'} className={'child'}
                           style={{textDecoration: "none", color: "black"}}>Contact</Link>
-                    <Link to={'/basket'} className={'child'}><img src={basketLogo}/></Link>
+                    <Link to={'/producers'} className={'child'}
+                          style={{textDecoration: "none", color: "black"}}>Our Producers</Link>
+                    <Link to={'/basket'} className={'child'}><img src={basketLogo} alt={'basketLogo'}/></Link>
                     <Link to={'/signIn'} className={'child signIn'} style={{textDecoration: "none", color: "black"}}>Sign
                         In</Link>
                 </div>

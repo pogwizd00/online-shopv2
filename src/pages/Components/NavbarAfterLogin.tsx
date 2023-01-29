@@ -1,18 +1,19 @@
 import React, {FC} from 'react';
 import {Logo} from "./Logo";
-import {Link, Outlet, useRoutes} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 import basketLogo from '../images/basket.png'
-import {LogOutForm} from "../features/logout/LogOutForm";
 import {userDeleteCookies} from "../../hooks/useIsLogged";
+
 
 interface NavbarAfterLoginProps {
 }
 
 
-export const NavbarAfterLogin: FC<NavbarAfterLoginProps> = ({}) => {
+export const NavbarAfterLogin: FC<NavbarAfterLoginProps> = () => {
     const handleClick = () => {
         userDeleteCookies();
     }
+
 
     return (
         <div>
@@ -25,7 +26,9 @@ export const NavbarAfterLogin: FC<NavbarAfterLoginProps> = ({}) => {
                           style={{textDecoration: "none", color: "black"}}>About Me</Link>
                     <Link to={'/contact'} className={'child'}
                           style={{textDecoration: "none", color: "black"}}>Contact</Link>
-                    <Link to={'/basket'} className={'child'}><img src={basketLogo}/></Link>
+                    <Link to={'/producers'} className={'child'}
+                          style={{textDecoration: "none", color: "black"}}>Our Procuders</Link>
+                    <Link to={'/basket'} className={'child'}><img src={basketLogo} alt={'basketLogo'}/></Link>
                     <Link to={'/'} className={'child signIn'}
                           style={{textDecoration: "none", color: "black"}} onClick={handleClick}> LogOut</Link>
                 </div>

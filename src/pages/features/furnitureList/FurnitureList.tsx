@@ -1,10 +1,17 @@
 import React, {FC, useEffect} from 'react';
 import {SimpleFurniture} from "../../types/simpleFurniture";
-import {getUser, listFurniture} from "./api";
+import {addFurnitureToUser, listFurniture} from "./api";
 import {Paper} from '@mantine/core';
 import '../../Styles/FurnitureList.css';
 import {Card, Image, Text, Badge, Button, Group} from '@mantine/core';
+import {getCookieName} from "../me/MeForm";
+import {notificationAterAddFurnitureToUser} from "./notufication";
 
+
+type FurnitureUser = {
+    userId: number,
+    furnituresId: number
+}
 
 export const FurnitureList: FC = () => {
     const [furnitures, setFurnitures] = React.useState<SimpleFurniture[]>([]);
@@ -14,8 +21,19 @@ export const FurnitureList: FC = () => {
     }, []);
 
 
-    const addToBasket = (id: number) => {
-        console.log(id);
+    const addToBasket = async (furnituresId: number) => {
+        const userId = getCookieName('user-id');
+        try {
+            const userFurniture: FurnitureUser = {
+                userId: parseInt(userId),
+                furnituresId: furnituresId,
+            }
+            await addFurnitureToUser(userFurniture);
+            notificationAterAddFurnitureToUser();
+
+        } catch (e) {
+            throw new DOMException("Sth is wrong")
+        }
     }
 
 
@@ -28,9 +46,10 @@ export const FurnitureList: FC = () => {
                     <Card shadow="sm" p="lg" radius="md" withBorder>
                         <Card.Section>
                             <Image
-                                src='basketLogo'
-                                height={160}
-                                alt="Furniture"
+                                height={120}
+                                // src={null}
+                                alt="With default placeholder"
+                                withPlaceholder
                             />
                         </Card.Section>
 
@@ -45,7 +64,6 @@ export const FurnitureList: FC = () => {
                         <Text size="sm" color="dimmed">
                             {furniture.specific}
                         </Text>
-
                         <Button onClick={() => addToBasket(furniture.id)} variant="light"
                                 style={{backgroundColor: '#F2A65A', color: 'black'}} fullWidth mt="md"
                                 radius="md">

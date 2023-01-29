@@ -1,10 +1,7 @@
 import React, {FC} from 'react';
-import {Center} from "../Layout/Center";
-import {Login} from "./Login";
 import {Products} from "./Products";
 import {About} from "./About";
 import {Contact} from "./Contact";
-import {Main} from "../Layout/Main";
 import {Basket} from "./Basket";
 import {Navigate, useRoutes} from "react-router-dom";
 import {ErrorPage} from "./ErrorPage";
@@ -15,6 +12,7 @@ import {LogOut} from "./LogOut";
 import {NavbarAfterLogin} from "./NavbarAfterLogin";
 import {SignUp} from "./SignUp";
 import {AboutWhenIsNotLogged} from "./AboutWhenIsNotLogged";
+import {Producers} from "./Producers";
 
 
 interface RoutingProps {
@@ -38,7 +36,10 @@ const publicRoutes = [
                 path: '/contact',
                 element: <Contact/>
             },
-
+            {
+                path: '/producers',
+                element: <Producers/>
+            }
 
         ]
     },
@@ -74,6 +75,10 @@ const privateRoutes = [
                 element: <Contact/>
             },
             {
+                path: '/producers',
+                element: <Producers/>
+            },
+            {
                 path: '/basket',
                 element: <Basket/>
             },
@@ -89,9 +94,8 @@ const privateRoutes = [
     }
 ]
 
-export const Routing: FC<RoutingProps> = ({}) => {
+export const Routing: FC<RoutingProps> = () => {
     const isLogged = useIsLogged();
-    // console.log(isLogged);
     const routes = isLogged ? privateRoutes : publicRoutes;
     return useRoutes(routes);
 };

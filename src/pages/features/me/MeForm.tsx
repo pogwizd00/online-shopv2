@@ -1,25 +1,21 @@
 import React, {FC, useEffect} from 'react';
-import {useGetId, useIsLogged} from "../../../hooks/useIsLogged";
-import {useParams} from "react-router-dom";
 import {UserDto} from "../../types/UserDto";
-import {Simulate} from "react-dom/test-utils";
-import input = Simulate.input;
 import {getUser} from "./api";
-import {Stack, Paper, Text, Accordion} from '@mantine/core';
+import {Stack, Paper, Accordion} from '@mantine/core';
 
 interface MeFormProps {
 }
 
-const getCookieName = (cname: string) => {
+export const getCookieName = (cname: string) => {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
     for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
-        while (c.charAt(0) == ' ') {
+        while (c.charAt(0) === ' ') {
             c = c.substring(1);
         }
-        if (c.indexOf(name) == 0) {
+        if (c.indexOf(name) === 0) {
             return c.substring(name.length, c.length);
         }
     }
@@ -27,13 +23,15 @@ const getCookieName = (cname: string) => {
 }
 
 
-export const MeForm: FC<MeFormProps> = ({}) => {
-    const cookie = document.cookie;
-    const id = getCookieName('id-user');
+export const MeForm: FC<MeFormProps> = () => {
+    const id = getCookieName('user-id');
+
     const [user, setUser] = React.useState<UserDto>();
+
     useEffect(() => {
         getUser(id).then((data) => setUser(data));
-    }, [input]);
+    }, []);
+
 
     return (
         <div>
@@ -54,9 +52,10 @@ export const MeForm: FC<MeFormProps> = ({}) => {
 
                         <Accordion.Item value="focus-ring">
                             <Accordion.Control>Email</Accordion.Control>
-                            <Accordion.Panel>{[user?.email]}</Accordion.Panel>
+                            <Accordion.Panel>{user?.email}</Accordion.Panel>
                         </Accordion.Item>
                     </Accordion>
+
                 </Paper>
             </Stack>
         </div>
