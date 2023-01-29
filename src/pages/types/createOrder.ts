@@ -1,4 +1,4 @@
-export interface OrderFormType {
+export interface CreateOrder {
     email: string;
     country: string;
     residence: string;

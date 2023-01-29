@@ -9,6 +9,13 @@ export const notificationAterAddFurnitureToUser = () => {
     })
 }
 
+export const notificationUserIsNotLoggedOrProductIsAlreadyInBasket = () => {
+    showNotification({
+        color: 'yellow',
+        message: 'Product is already in the shopping basket or you are not logged in'
+    })
+}
+
 export const notificationRemoveFurnitureFromBasket = () => {
     showNotification({
         color: 'yellow',

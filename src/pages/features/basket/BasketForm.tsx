@@ -1,6 +1,6 @@
 import React, {FC, useEffect} from 'react';
 import {getCookieName} from "../me/MeForm";
-import {getAllFurnituresForUser} from "./api";
+import {createOrder, getAllFurnituresForUser} from "./api";
 import {Button, Group, CloseButton, TextInput, Badge, Paper, Image} from '@mantine/core';
 import '../../Styles/UserFurnitureList.css'
 import {SimpleFurniture} from "../../types/simpleFurniture";
@@ -10,6 +10,9 @@ import {useForm} from "@mantine/form";
 import {useNavigate} from "react-router-dom";
 import {orderBadNotification, orderSuccessfulNotification} from "./notification";
 import {notificationRemoveFurnitureFromBasket} from "../furnitureList/notufication";
+import {UserDto} from "../../types/UserDto";
+import {getUser} from "../me/api";
+import {CreateOrder} from "../../types/createOrder";
 
 
 interface BasketFormProps {
@@ -18,16 +21,20 @@ interface BasketFormProps {
 export const BasketForm: FC<BasketFormProps> = () => {
 
     const refresh = () => window.location.reload();
-
     const navigate = useNavigate();
-
     const userId = getCookieName('user-id');
 
     const [furnituresList, setFurnitures] = React.useState<SimpleFurniture[]>([]);
+    const [user, setUser] = React.useState<UserDto>();
 
     useEffect(() => {
         getAllFurnituresForUser(parseInt(userId)).then((data) => setFurnitures(data));
     }, []);
+
+    useEffect(() => {
+        getUser(userId).then((data) => setUser(data));
+    }, []);
+
 
     let price: number = 0.0;
     furnituresList.map(furniture => (
@@ -37,10 +44,12 @@ export const BasketForm: FC<BasketFormProps> = () => {
     const form = useForm<OrderFormType>(
         {
             initialValues: {
+                email: '',
                 country: '',
                 residence: '',
                 postalCode: '',
                 phoneNumber: '',
+                price: 0,
                 detailsToOrder: ''
             }
         }
@@ -48,10 +57,19 @@ export const BasketForm: FC<BasketFormProps> = () => {
 
     const handleOnSubmit = async (data: OrderFormType) => {
         try {
-            //todo stworzyc nowa tabele ktora przyjmuje zamowienia!
-
+            const order: CreateOrder = {
+                email: user?.email!, //ts can trust me :))
+                country: data.country,
+                residence: data.residence,
+                postalCode: data.postalCode,
+                phoneNumber: data.phoneNumber,
+                price: price,
+                detailsToOrder: data.detailsToOrder
+            }
+            createOrder(order).then(() => {
+                navigate('/products')
+            })
             orderSuccessfulNotification();
-            navigate('/products');
         } catch (error) {
             orderBadNotification();
         }

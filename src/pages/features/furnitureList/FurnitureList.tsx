@@ -5,7 +5,10 @@ import {Paper} from '@mantine/core';
 import '../../Styles/FurnitureList.css';
 import {Card, Image, Text, Badge, Button, Group} from '@mantine/core';
 import {getCookieName} from "../me/MeForm";
-import {notificationAterAddFurnitureToUser} from "./notufication";
+import {
+    notificationAterAddFurnitureToUser,
+    notificationUserIsNotLoggedOrProductIsAlreadyInBasket
+} from "./notufication";
 
 
 type FurnitureUser = {
@@ -32,7 +35,7 @@ export const FurnitureList: FC = () => {
             notificationAterAddFurnitureToUser();
 
         } catch (e) {
-            throw new DOMException("Sth is wrong")
+            notificationUserIsNotLoggedOrProductIsAlreadyInBasket();
         }
     }
 

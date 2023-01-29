@@ -29,7 +29,7 @@ export const NavbarAfterLogin: FC<NavbarAfterLoginProps> = () => {
                     <Link to={'/producers'} className={'child'}
                           style={{textDecoration: "none", color: "black"}}>Our Procuders</Link>
                     <Link to={'/basket'} className={'child'}><img src={basketLogo} alt={'basketLogo'}/></Link>
-                    <Link to={'/'} className={'child signIn'}
+                    <Link to={'/products'} className={'child signIn'}
                           style={{textDecoration: "none", color: "black"}} onClick={handleClick}> LogOut</Link>
                 </div>
                 <Outlet/>
